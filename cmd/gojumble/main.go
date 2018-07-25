@@ -2,15 +2,28 @@ package main
 
 import (
   "fmt"
-  "io/ioutil"
+  "os"
+  "log"
+  "bufio"
 )
 
 // Pull up dictionary and parse words
 func readWords() {
-  words, err := ioutil.ReadFile("words")
+  wordList, err := os.Open("words")
   if err != nil {
-    panic(err)
+    log.Fatal(err)
   }
+  defer wordList.Close()
+  
+  scanner := bufio.NewScanner(wordList)
+    for scanner.Scan() {
+        fmt.Println(scanner.Text())
+    }
+
+    if err := scanner.Err(); err != nil {
+        log.Fatal(err)
+    }
+  
 }
 
 func main() {
