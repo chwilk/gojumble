@@ -2,17 +2,15 @@ package main
 
 import (
   "fmt"
-  "os"
+  "io/ioutil"
 )
 
 // Pull up dictionary and parse words
 func readWords() {
-  words, err := os.Open("words")
+  words, err := ioutil.ReadFile("words")
   if err != nil {
-    fmt.Println(err)
-    return
+    panic(err)
   }
-  defer words.Close()
 }
 
 func main() {
