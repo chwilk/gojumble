@@ -1,3 +1,6 @@
+/*
+gojumble: golang implementation of simple de-jumbler program
+*/
 package main
 
 import (
