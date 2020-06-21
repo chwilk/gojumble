@@ -12,7 +12,7 @@ import (
 
 // Pull up dictionary and parse words
 func readWords() {
-  wordList, err := os.Open("words")
+  wordList, err := os.Open("assets/words.txt")
   if err != nil {
     log.Fatal(err)
   }
